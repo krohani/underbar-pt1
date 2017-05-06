@@ -31,4 +31,20 @@ describe('contains()', () => {
     expect(_.contains(ponies, 'Applejack')).toBe(false);
   });
 
+  it('returns true if the object is a string since under the hood strings are just arrays', () => {
+    const myString = "hello world";
+    expect(_.contains(myString, 'e')).toBe(true);
+  });
+
+  it('returns false if the object is a something other than a string, array or object', () => {
+    const myNumber = 56789;
+    expect(_.contains(myNumber, 5)).toBe(false);
+  });
+
+  it('returns false if the target itself is an array', () => {
+    const nums = [1, 2, 3, [4,4,4], 5];
+    expect(_.contains(nums, [4,4,4])).toBe(false);
+  });
+
+
 });
