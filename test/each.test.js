@@ -39,5 +39,22 @@ describe('each()', () => {
     });
     expect(count).toBe(3);
   });
+
+  it('does not break of the each and touches every element even if a return statement is within the callback function', () => {
+    const obj = {
+      name: 'Calvin',
+      age: 6,
+      occupation: 'student'
+    };
+    let count = 0;
+    _.each(obj, (value, key, obj) => {
+      count++;
+      if (value === 'Calvin') {
+        return;
+      }
+    });
+    expect(count).toBe(3);
+  });
+
 });
 

@@ -5,6 +5,26 @@ const contains = function(obj, target) {
   }, false);
 };
 
+// function REDUCE - Reduces collection to a value which is the accumulated result of running
+// each element through the callback, where each successive
+// invocation is supplied the return value of the previous invocation. If `accumulator`
+// is not given, the first element of the collection is used as the initial
+// value. The callback is invoked with four arguments:
+// (accumulator, value, index|key, collection).
+const reduce = function(obj, callback=identity, initialValue) {
+  let accumulator = initialValue;
+  let initializing = accumulator === undefined;
+  each(obj, (currentValue, currentIndexOrKey, iteratedObj)  => {
+    if (initializing) {
+      initializing = false;
+      accumulator = currentValue;
+    } else {
+      accumulator = callback(accumulator, currentValue, currentIndexOrKey, iteratedObj);
+    }
+  });
+  return accumulator;
+};
+
 // function EACH = The cornerstone of a functional library -- iterate all elements, pass each to a callback function.
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 const each = function(obj, callback=identity) {
@@ -89,25 +109,7 @@ const pluck = function(obj, key) {
   return map(obj, item => item[key]);
 };
 
-// function REDUCE - Reduces collection to a value which is the accumulated result of running
-// each element through the callback, where each successive
-// invocation is supplied the return value of the previous invocation. If `accumulator`
-// is not given, the first element of the collection is used as the initial
-// value. The callback is invoked with four arguments:
-// (accumulator, value, index|key, collection).
-const reduce = function(obj, callback=identity, initialValue) {
-  let accumulator = initialValue;
-  let initializing = accumulator === undefined;
-  each(obj, (currentValue, currentIndexOrKey, iteratedObj)  => {
-    if (initializing) {
-      initializing = false;
-      accumulator = currentValue;
-    } else {
-      accumulator = callback(accumulator, currentValue, currentIndexOrKey, iteratedObj);
-    }
-  });
-  return accumulator;
-};
+
 
 // function REJECT - Return object without the elements / object valuesthat were rejected by the callback.
 const reject = function(arr, callback=identity) {
