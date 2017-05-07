@@ -20,4 +20,18 @@ describe('identity()', () => {
     };
     expect(_.identity(val)).toBe(val);
   });
+
+  it('returns a function not executed if given a function', () => {
+    const func = function() { console.log("hello world"); };
+    expect(_.identity(func)).toBe(func);
+  });
+
+  it('returns undefined if given undefined', () => {
+    expect(_.identity(undefined)).toBeUndefined();
+  });
+
+  it('returns undefined if given no parameters', () => {
+    expect(_.identity()).toBeUndefined();
+  });
+
 });

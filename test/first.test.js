@@ -12,4 +12,12 @@ describe('first()', () => {
   it('returns the whole array if you ask for more elements than it has', () => {
     expect(_.first(['a', 'b', 'c'], 5)).toEqual(['a', 'b', 'c']);
   });
+
+  it('returns empty array if requesting zero elements ', () => {
+    expect(_.first(['a', 'b', 'c'], 0)).toEqual([]);
+  });
+
+  it('returns array of elements from array length minute negative n', () => {
+    expect(_.first(['a', 'b', 'c'], -1)).toEqual(['a', 'b']);
+  });
 });
