@@ -110,8 +110,7 @@ const pluck = function(obj, key) {
 };
 
 
-
-// function REJECT - Return object without the elements / object valuesthat were rejected by the callback.
+// function REJECT - Return object without the elements / object values that were rejected by the callback.
 const reject = function(arr, callback=identity) {
   return filter(arr, item => !callback(item));
 };

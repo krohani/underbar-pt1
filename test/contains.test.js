@@ -6,6 +6,19 @@ describe('contains()', () => {
     expect(_.contains(nums, 4)).toBe(true);
   });
 
+  it('returns false if an empty array provided with a search value', () => {
+    expect(_.contains([], 4)).toBe(false);
+  });
+
+  it('returns false if an empty array provided with NO search value', () => {
+    expect(_.contains([])).toBe(false);
+  });
+
+  it('returns false if an array provided with NO search value', () => {
+    const nums = [1, 2, 3, 4, 5];
+    expect(_.contains(nums)).toBe(false);
+  });
+
   it('returns false if an array does not contain the target', () => {
     const nums = [1, 2, 3, 4, 5];
     expect(_.contains(nums, 7)).toBe(false);

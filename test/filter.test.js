@@ -36,5 +36,11 @@ describe('filter()', () => {
     expect(_.filter(nums, num => num % 2 === 1)).toEqual(nums);
   });
 
+  it('returns similar array if no callback provided', () => {
+    const nums = [1,3,5,7,9,11];
+    expect(_.filter(nums)).toEqual(nums);
+  });
+
+
 
 });

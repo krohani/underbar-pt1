@@ -5,6 +5,14 @@ describe('first()', () => {
     expect(_.first(['a', 'b', 'c'])).toEqual('a');
   });
 
+  it('returns undefined if given empty array and no number', () => {
+    expect(_.first([])).toBeUndefined();
+  });
+
+  it('returns empty array if given empty array and a number', () => {
+    expect(_.first([], 2)).toEqual([]);
+  });
+
   it('returns the first 2 elements of an array', () => {
     expect(_.first(['a', 'b', 'c'], 2)).toEqual(['a', 'b']);
   });

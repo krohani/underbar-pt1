@@ -21,6 +21,11 @@ describe('indexOf()', () => {
     expect(_.indexOf(arr, 'bar')).toBe(1);
   });
 
+  it('returns -1 if given empty array', () => {
+    const arr = [];
+    expect(_.indexOf(arr, 'foo')).toBe(-1);
+  });
+
   it('starts searching at the given offset', () => {
     const arr = ['foo', 'bar', 'baz', 'bar', 'bar'];
     expect(_.indexOf(arr, 'bar', 2)).toBe(3);

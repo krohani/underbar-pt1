@@ -5,6 +5,15 @@ describe('last()', () => {
     expect(_.last(['a', 'b', 'c'])).toEqual('c');
   });
 
+  it('returns undefined if given an empty array and no number', () => {
+    expect(_.last([])).toBeUndefined();
+  });
+
+  it('returns an empty array if given an empty array and a number', () => {
+    expect(_.last([], 2)).toEqual([]);
+  });
+
+
   it('returns the last 2 elements of an array', () => {
     expect(_.last(['a', 'b', 'c'], 2)).toEqual(['b', 'c']);
   });

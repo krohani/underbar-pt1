@@ -5,6 +5,14 @@ describe('isArrayLike()', () => {
     expect(_.isArrayLike([1, 2, 3])).toBe(true);
   });
 
+  it('returns true for an actual EMPTY array', () => {
+    expect(_.isArrayLike([])).toBe(true);
+  });
+
+  it('returns true for an actual EMPTY array-like object', () => {
+    expect(_.isArrayLike({length: 0})).toBe(true);
+  });
+
   it('returns true for an array-like object', () => {
     const arrayLikeObj = {
       length: 10

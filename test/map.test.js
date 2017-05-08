@@ -7,7 +7,13 @@ describe('map()', () => {
     expect(mappedArr).toEqual([1, 4, 9, 16, 25]);
   });
 
-  it('maps every numbers in an object of number values to their half', () => {
+  it('maps every item to itself if no callback provided', () => {
+    const arr = [1, 2, 3, 4, 5];
+    const mappedArr = _.map(arr);
+    expect(mappedArr).toEqual(arr);
+  });
+
+  it('maps every number in an object of number property values to their half', () => {
     const obj = {
       "number1":  1,
       "numebr2": 2,
